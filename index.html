@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gautam Manerikar</title>
+<meta name="description" content="Gautam Manerikar, Robotics Engineering student in Engineering Science at the University of Toronto. Projects, experience and resume.">
+<meta property="og:title" content="Gautam Manerikar">
+<meta property="og:description" content="Robotics Engineering, University of Toronto. Projects and experience.">
+<meta property="og:image" content="assets/img/headshot-portrait.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2314284b'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-weight='700' font-size='14' text-anchor='middle' fill='%23fff'%3EGM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#ffffff;
+  --tint:#f3f5f9;
+  --navy:#14284b;
+  --navy-2:#24406f;
+  --navy-soft:#e6ebf3;
+  --black:#0e0f12;
+  --text:#1b1d22;
+  --muted:#5b6474;
+  --line:#dfe3ea;
+  --wrap:1120px;
+  --gut:clamp(16px,4vw,32px);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0; min-height:100vh; display:flex; flex-direction:column; background:var(--white); color:var(--text); font:400 17px/1.65 "Public Sans",system-ui,sans-serif; overflow-x:hidden}
+img{max-width:100%; display:block; height:auto}
+a{color:var(--navy)}
+h1,h2,h3,h4{color:var(--black); line-height:1.15; margin:0; letter-spacing:-.015em}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap); margin:0 auto; padding:0 var(--gut)}
+.skip{position:absolute; left:-999px} .skip:focus{left:16px; top:16px; z-index:99; background:var(--navy); color:#fff; padding:8px 12px}
+:focus-visible{outline:2px solid var(--navy); outline-offset:3px}
+main{flex:1}
+main:focus{outline:none}
+
+/* header */
+.top{position:sticky; top:0; z-index:40; background:var(--white); border-bottom:1px solid var(--line)}
+.top .wrap{display:flex; align-items:center; height:64px; gap:24px}
+.name{font-weight:700; font-size:1.05rem; color:var(--black); text-decoration:none; white-space:nowrap}
+.menu{display:flex; align-items:center; gap:4px; margin-left:auto; list-style:none; padding:0}
+.menu a{display:block; text-decoration:none; color:var(--muted); font-weight:500; font-size:.95rem; padding:8px 12px; border-radius:6px}
+.menu a:hover{color:var(--black); background:var(--tint)}
+.menu a[aria-current="page"]{color:var(--navy); background:var(--navy-soft)}
+.menu .cv a{color:var(--white); background:var(--navy); margin-left:8px}
+.menu .cv a:hover{background:var(--black)}
+.burger{display:none; margin-left:auto; background:none; border:1px solid var(--line); border-radius:6px; width:42px; height:38px; cursor:pointer; color:var(--black)}
+@media (max-width:820px){
+  .burger{display:grid; place-items:center}
+  .menu{display:none; position:absolute; top:64px; left:0; right:0; background:var(--white); border-bottom:1px solid var(--line); flex-direction:column; align-items:stretch; padding:8px var(--gut) 16px; margin:0; gap:2px}
+  .menu.open{display:flex}
+  .menu a{padding:12px}
+  .menu .cv a{margin:8px 0 0; text-align:center}
+}
+
+/* views */
+.view{display:none; padding:clamp(40px,7vw,80px) 0 clamp(56px,8vw,96px)}
+.view.on{display:block; animation:fade .25s ease}
+@keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+@media (prefers-reduced-motion:reduce){.view.on{animation:none}}
+.no-js .view{display:block}
+.page-h{margin-bottom:clamp(28px,5vw,48px); max-width:680px}
+.page-h h1{font-size:clamp(2.1rem,5vw,3rem); font-weight:800; margin-bottom:12px}
+.page-h p{color:var(--muted); font-size:1.08rem; margin:0}
+.eyebrow{display:block; color:var(--navy); font-weight:600; font-size:.9rem; margin-bottom:10px}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:6px; font-weight:600; font-size:.95rem; text-decoration:none; border:1.5px solid var(--navy); transition:background .15s,color .15s,border-color .15s}
+.btn.fill{background:var(--navy); color:var(--white)}
+.btn.fill:hover{background:var(--black); border-color:var(--black)}
+.btn.line{color:var(--navy)}
+.btn.line:hover{background:var(--navy-soft)}
+.btns{display:flex; flex-wrap:wrap; gap:12px}
+
+/* home */
+.intro{display:grid; grid-template-columns:1.4fr .6fr; gap:clamp(32px,6vw,72px); align-items:center}
+.intro h1{font-size:clamp(2.6rem,6.5vw,4.2rem); font-weight:800; margin-bottom:20px}
+.intro .lead{font-size:clamp(1.08rem,1.6vw,1.2rem); color:#3a4150; max-width:36em; margin-bottom:28px}
+.portrait{margin:0; justify-self:end; width:100%; max-width:340px}
+.portrait img{width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 20%; border-radius:12px; box-shadow:12px 12px 0 var(--navy-soft)}
+.portrait figcaption{font-size:.85rem; color:var(--muted); margin-top:10px}
+@media (max-width:820px){ .intro{grid-template-columns:1fr} .portrait{justify-self:start; max-width:240px; order:-1} }
+.now{background:var(--navy); color:#dfe6f2; border-radius:10px; padding:22px 26px; margin-top:clamp(40px,6vw,64px); display:grid; grid-template-columns:1fr 1fr; gap:16px 32px}
+.now b{color:var(--white); font-weight:600}
+.now p{margin:0}
+.now span{display:block; font-size:.82rem; color:#9fb0cc; margin-bottom:2px}
+@media (max-width:640px){ .now{grid-template-columns:1fr} }
+.row-h{display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin:clamp(48px,7vw,80px) 0 22px}
+.row-h h2{font-size:1.6rem; font-weight:700}
+.row-h a{font-weight:600; text-decoration:none}
+.row-h a:hover{text-decoration:underline}
+
+/* project tiles */
+.tiles{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2.5vw,28px)}
+@media (max-width:960px){ .tiles{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:600px){ .tiles{grid-template-columns:1fr} }
+.tile{display:flex; flex-direction:column; text-decoration:none; color:inherit; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--white); transition:border-color .15s, box-shadow .15s, transform .15s}
+.tile:hover{border-color:var(--navy); box-shadow:0 8px 24px -12px rgba(20,40,75,.35); transform:translateY(-2px)}
+.tile .pic{aspect-ratio:4/3; background:var(--tint); overflow:hidden; position:relative}
+.tile .pic img{width:100%; height:100%; object-fit:cover}
+.tile .pic svg{width:100%; height:100%; display:block}
+.tile .body{padding:18px 18px 20px; display:flex; flex-direction:column; flex:1}
+.tile h3{font-size:1.2rem; font-weight:700; margin-bottom:6px}
+.tile p{color:var(--muted); font-size:.95rem; margin:0 0 14px; flex:1}
+.tile .tags{font-size:.82rem; color:var(--navy-2); font-weight:500}
+.badge{position:absolute; left:12px; top:12px; background:var(--navy); color:#fff; font-size:.78rem; font-weight:600; padding:4px 10px; border-radius:99px}
+.tile .more{margin-top:12px; font-weight:600; font-size:.9rem; color:var(--navy)}
+
+/* project detail */
+.back{display:inline-flex; gap:6px; font-weight:600; text-decoration:none; font-size:.95rem; margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.pd-head{margin-bottom:28px}
+.pd-head h1{font-size:clamp(2.1rem,5vw,3.1rem); font-weight:800}
+.pd-head .sub{font-size:1.15rem; color:var(--muted); margin:10px 0 0; max-width:40em}
+.pd-head .badge{position:static; display:inline-block; margin-bottom:12px}
+.facts{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:0 0 32px}
+.facts div{padding:14px 18px 14px 0}
+.facts div+div{padding-left:18px; border-left:1px solid var(--line)}
+.facts dt{font-size:.82rem; color:var(--muted); margin-bottom:2px}
+.facts dd{margin:0; font-weight:600; color:var(--black); font-size:.95rem}
+@media (max-width:640px){ .facts{grid-template-columns:1fr} .facts div+div{padding-left:0; border-left:0; border-top:1px solid var(--line)} }
+.demo{margin:0 0 16px}
+.demo video{width:100%; display:block; border-radius:10px; background:#000; aspect-ratio:16/9}
+.demo figcaption{font-size:.88rem; color:var(--muted); margin-top:8px}
+.tile .vid{position:absolute; right:12px; top:12px; background:rgba(14,15,18,.8); color:#fff; font-size:.75rem; font-weight:600; padding:4px 10px; border-radius:99px}
+.gallery{display:grid; gap:12px; margin-bottom:clamp(32px,5vw,48px)}
+.gallery.g2{grid-template-columns:1fr 1fr}
+.gallery button{all:unset; cursor:zoom-in; display:block; border-radius:10px; overflow:hidden; background:var(--tint)}
+.gallery button:focus-visible{outline:2px solid var(--navy); outline-offset:2px}
+.gallery img,.gallery svg{width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; display:block}
+.gallery.g1 img,.gallery.g1 svg{aspect-ratio:16/9; max-height:520px}
+.gallery .contain img{object-fit:contain; background:#fff}
+.gallery button.wide{grid-column:1/-1}
+.gallery button.wide img{aspect-ratio:auto; height:auto}
+.gallery .cap{grid-column:1/-1; font-size:.88rem; color:var(--muted); margin-top:-2px}
+@media (max-width:640px){ .gallery.g2{grid-template-columns:1fr} }
+.story{display:grid; grid-template-columns:200px minmax(0,1fr); gap:12px 40px; max-width:900px}
+.story h2{font-size:1.1rem; font-weight:700; color:var(--navy); padding-top:3px}
+.story>div{margin-bottom:28px}
+.story ul{margin:0; padding-left:1.1em}
+.story li{margin-bottom:8px}
+.story li::marker{color:var(--navy)}
+.story .result{font-weight:600; color:var(--black); border-left:3px solid var(--navy); padding:2px 0 2px 16px}
+@media (max-width:700px){ .story{grid-template-columns:1fr; gap:6px} }
+.pager{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px; padding-top:28px; border-top:1px solid var(--line)}
+.pager a{text-decoration:none; border:1px solid var(--line); border-radius:10px; padding:16px 18px; color:var(--black); font-weight:600}
+.pager a:hover{border-color:var(--navy)}
+.pager span{display:block; font-size:.82rem; color:var(--muted); font-weight:500; margin-bottom:2px}
+.pager a.nx{text-align:right}
+.blinker{position:relative; height:100%}
+.blinker img.alt{position:absolute; inset:0; animation:blink 1.6s steps(1) infinite}
+@keyframes blink{0%{opacity:0}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.blinker img.alt{animation:none; opacity:0}}
+
+/* experience */
+.job{display:grid; grid-template-columns:200px minmax(0,1fr); gap:12px 40px; padding:32px 0; border-top:1px solid var(--line)}
+.job:first-of-type{border-top:0; padding-top:0}
+.job .when{color:var(--muted); font-size:.92rem}
+.job .when b{display:block; color:var(--black); font-weight:600}
+.job h2{font-size:1.4rem; font-weight:700}
+.job .org{color:var(--navy); font-weight:600; margin:2px 0 14px}
+.job ul{margin:0; padding-left:1.1em}
+.job li{margin-bottom:8px; color:#383e4a}
+.job li::marker{color:var(--navy)}
+@media (max-width:700px){ .job{grid-template-columns:1fr; gap:4px} }
+
+/* journey */
+.legend{display:flex; flex-wrap:wrap; gap:8px 20px; font-size:.88rem; color:var(--muted); margin:-12px 0 36px}
+.legend span{display:inline-flex; align-items:center; gap:8px}
+.dot{width:12px; height:12px; border-radius:50%; flex:none; display:inline-block}
+.d-edu{background:var(--white); border:2.5px solid var(--navy)}
+.d-work{background:var(--navy)}
+.d-lead{background:var(--black); border-radius:2px}
+.d-award{background:var(--white); border:2.5px solid var(--black); border-radius:2px; transform:rotate(45deg) scale(.85)}
+.d-sport{background:var(--white); border:2.5px solid var(--navy); border-radius:2px}
+.stage{margin-bottom:36px}
+.stage>h2{font-size:.95rem; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.06em; margin-bottom:18px}
+.tl{list-style:none; margin:0; padding:0; position:relative}
+.tl::before{content:""; position:absolute; left:136px; top:8px; bottom:8px; width:2px; background:var(--line)}
+.tl>li{display:grid; grid-template-columns:120px 34px minmax(0,1fr); padding-bottom:26px; position:relative}
+.tl .yr{text-align:right; color:var(--muted); font-size:.9rem; padding-top:1px; white-space:nowrap}
+.tl .dot{margin:6px 0 0 11px; position:relative; z-index:1}
+.tl h3{font-size:1.12rem; font-weight:700}
+.tl p{margin:4px 0 0; color:var(--muted); font-size:.96rem}
+.pills{display:flex; flex-wrap:wrap; gap:6px; list-style:none; padding:0; margin:10px 0 0}
+.pills li{display:block; padding:3px 10px; border-radius:99px; background:var(--tint); font-size:.82rem; color:#3a4150}
+.pills li.k{background:var(--navy-soft); color:var(--navy); font-weight:600}
+@media (max-width:600px){
+  .tl::before{left:5px}
+  .tl>li{grid-template-columns:28px minmax(0,1fr)}
+  .tl .yr{grid-column:2; grid-row:1; text-align:left; margin-bottom:2px}
+  .tl .dot{grid-column:1; grid-row:1; margin:6px 0 0 0}
+  .tl>li>div{grid-column:2}
+}
+
+/* about */
+.about{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:clamp(32px,6vw,72px); align-items:start}
+.about .body p{font-size:1.06rem; color:#383e4a}
+.card{border:1px solid var(--line); border-radius:10px; padding:22px 24px}
+.card h2{font-size:1.1rem; font-weight:700; margin-bottom:14px}
+.card dl{margin:0}
+.card dl div{padding:10px 0; border-top:1px solid var(--line)}
+.card dl div:first-child{border-top:0; padding-top:0}
+.card dt{font-size:.82rem; color:var(--muted)}
+.card dd{margin:0; font-weight:600; color:var(--black); word-break:break-word}
+.card dd a{text-decoration:none} .card dd a:hover{text-decoration:underline}
+@media (max-width:820px){ .about{grid-template-columns:1fr} }
+.skills{margin-top:clamp(40px,6vw,64px)}
+.skills h2{font-size:1.6rem; font-weight:700; margin-bottom:18px}
+.sk{display:grid; grid-template-columns:200px minmax(0,1fr); gap:6px 40px; padding:14px 0; border-top:1px solid var(--line)}
+.sk h3{font-size:.98rem; font-weight:600; color:var(--navy)}
+.sk p{margin:0; color:#383e4a}
+@media (max-width:700px){ .sk{grid-template-columns:1fr} }
+
+/* footer */
+footer{background:var(--black); color:#c9ced8; padding:48px 0 32px}
+footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px 40px; align-items:flex-end}
+footer h2{color:#fff; font-size:1.5rem; font-weight:700; margin-bottom:8px}
+footer a{color:#fff; word-break:break-word}
+footer .links{display:flex; flex-wrap:wrap; gap:8px 20px; font-weight:500}
+footer .links a{text-decoration:none; border-bottom:1px solid #5b6474}
+footer .links a:hover{border-color:#fff}
+footer small{display:block; width:100%; color:#7d8494; font-size:.82rem; padding-top:20px; border-top:1px solid #262a33}
+
+/* lightbox */
+dialog.lb{border:0; padding:0; background:transparent; max-width:min(94vw,1200px); max-height:92vh}
+dialog.lb::backdrop{background:rgba(8,14,26,.9)}
+dialog.lb img{max-height:84vh; width:auto; margin:0 auto; border-radius:6px}
+dialog.lb p{color:#d6dbe4; font-size:.88rem; text-align:center; margin:10px 0 0}
+dialog.lb button{position:fixed; top:16px; right:16px; background:#fff; color:#111; border:0; width:40px; height:40px; border-radius:50%; font-size:22px; cursor:pointer}
+</style>
+</head>
+<body class="no-js">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="name" href="#/">Gautam Manerikar</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+    <ul class="menu" id="menu">
+      <li><a href="#/" data-nav="home">Home</a></li>
+      <li><a href="#/projects" data-nav="projects">Projects</a></li>
+      <li><a href="#/experience" data-nav="experience">Experience</a></li>
+      <li><a href="#/journey" data-nav="journey">Journey</a></li>
+      <li><a href="#/about" data-nav="about">About</a></li>
+      <li class="cv"><a href="assets/Gautam_Manerikar_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- HOME -->
+<section class="view" data-view="home">
+  <div class="wrap">
+    <div class="intro">
+      <div>
+        <span class="eyebrow">Robotics Engineering · University of Toronto</span>
+        <h1>Hi, I'm Gautam.</h1>
+        <p class="lead">I'm a third-year Engineering Science student specializing in robotics. I like building things that have to work in the real world: robot arms, autonomous rovers, control systems and the circuits that run them.</p>
+        <div class="btns">
+          <a class="btn fill" href="#/projects">View my projects</a>
+          <a class="btn line" href="assets/Gautam_Manerikar_Resume.pdf" target="_blank" rel="noopener">Download resume</a>
+        </div>
+      </div>
+      <figure class="portrait">
+        <img src="assets/img/headshot-portrait.webp" width="367" height="459" alt="Gautam Manerikar">
+      </figure>
+    </div>
+
+    <div class="now">
+      <p><span>Right now</span><b>Autonomous Vehicle Mapping Developer at aUToronto</b>, building the HD map for U of T's self-driving car.</p>
+      <p><span>Most recently</span><b>Data Insights Analyst at Maple Leaf Foods</b>, summer 2026.</p>
+    </div>
+
+    <div class="row-h"><h2>Featured projects</h2><a href="#/projects">All projects →</a></div>
+    <div class="tiles" id="featured"></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="view" data-view="projects">
+  <div class="wrap">
+    <div class="page-h">
+      <h1>Projects</h1>
+      <p>Robots, circuits and simulations I've designed and built. Click any project for the full story: what the problem was, what I did, and how it turned out.</p>
+    </div>
+    <div class="tiles" id="all-projects"></div>
+  </div>
+</section>
+
+<!-- PROJECT DETAIL -->
+<section class="view" data-view="project">
+  <div class="wrap" id="project-detail"></div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="view" data-view="experience">
+  <div class="wrap">
+    <div class="page-h">
+      <h1>Experience</h1>
+      <p>Where I've worked and what I worked on, from self-driving cars to data and mobile apps.</p>
+    </div>
+
+    <article class="job">
+      <div class="when"><b>Sep 2026 – Present</b>Toronto, ON</div>
+      <div>
+        <h2>Autonomous Vehicle Mapping Developer</h2>
+        <div class="org">aUToronto, University of Toronto</div>
+        <ul>
+          <li>Turn lidar point-cloud maps into drivable lane-level paths for the car's 20 km autonomous route across Toronto.</li>
+          <li>Connect Lanelet2 lane segments into a routable network so the planner can find lane-level routes across the map.</li>
+          <li>Define parent, child and sibling lanelet links so the car knows where it came from, where to go and where to merge.</li>
+          <li>Build the HD prior map the autonomy stack relies on, offloading lane perception from live sensors onto the map.</li>
+        </ul>
+        <p style="margin:14px 0 0"><a href="#/projects/autoronto" style="font-weight:600">See the mapping project →</a></p>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when"><b>May 2026 – Aug 2026</b>Mississauga, ON</div>
+      <div>
+        <h2>Data Insights Analyst</h2>
+        <div class="org">Maple Leaf Foods</div>
+        <ul>
+          <li>3D-scanned a worn gear with a ZEISS T-SCAN, capturing 7M+ points, and rebuilt it in CAD to identify parts to reorder.</li>
+          <li>Owned a Power App replacing manual Excel store mapping for 18,000+ locations, iterated through nationwide user testing.</li>
+          <li>Modelled 6M+ Power BI activity events into a star schema, delivering the first usage analytics for 1,300+ users.</li>
+          <li>Built a PySpark pipeline in Microsoft Fabric turning review APIs into a weekly auto-updating eCommerce marketing report.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when"><b>May 2025 – Aug 2025</b>Toronto, ON</div>
+      <div>
+        <h2>Software Engineering Intern</h2>
+        <div class="org">Teraopt</div>
+        <ul>
+          <li>Developed a production-ready iOS application using Swift, SwiftUI and VisionKit to scan and extract structured data from diverse receipt formats, achieving 90%+ OCR accuracy.</li>
+          <li>Designed data categorization workflows and automated Excel exports, enabling efficient organization of 100+ receipts across multiple use cases.</li>
+          <li>Implemented persistent data storage and sidebar-based navigation to manage 20+ historical scans, improving usability and retrieval.</li>
+          <li>Collaborated with stakeholders to refine UX requirements and ensure robust performance under real-world input variability.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when"><b>Sep 2023 – Apr 2024</b>FIRST Robotics Competition</div>
+      <div>
+        <h2>Mechanical Team Lead</h2>
+        <div class="org">FIRST Robotics</div>
+        <ul>
+          <li>Led mechanical design and fabrication of the competition robot; placed 5th internationally and won 2 district events.</li>
+          <li>Developed the shooter mechanism: 2 sets of 4 flywheels linked by triangular belts, pivoting from 17° to 55° to set shot angle.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when"><b>2019 – Present</b>Mississauga, ON</div>
+      <div>
+        <h2>Umpire</h2>
+        <div class="org">Mississauga North Baseball Association</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="view" data-view="journey">
+  <div class="wrap">
+    <div class="page-h">
+      <h1>Journey</h1>
+      <p>My path through school, competitions, sports and work, starting with what I'm doing now.</p>
+    </div>
+    <div class="legend" aria-hidden="true">
+      <span><i class="dot d-edu"></i>Education</span>
+      <span><i class="dot d-work"></i>Work</span>
+      <span><i class="dot d-lead"></i>Leadership</span>
+      <span><i class="dot d-award"></i>Competition</span>
+      <span><i class="dot d-sport"></i>Sports</span>
+    </div>
+
+    <div class="stage">
+      <h2>University</h2>
+      <ol class="tl">
+        <li><div class="yr">Sep 2026 – Now</div><i class="dot d-work"></i><div>
+          <h3>Autonomous Vehicle Mapping Developer, aUToronto</h3></div></li>
+        <li><div class="yr">May – Aug 2026</div><i class="dot d-work"></i><div>
+          <h3>Data Insights Analyst, Maple Leaf Foods</h3></div></li>
+        <li><div class="yr">Feb 2026</div><i class="dot d-award"></i><div>
+          <h3>UTRA Hackathon</h3>
+          <p>Built an autonomous task-completing robot with my team. <a href="#/projects/rover">See the project →</a></p></div></li>
+        <li><div class="yr">May – Aug 2025</div><i class="dot d-work"></i><div>
+          <h3>Software Engineering Intern, Teraopt</h3>
+          <p>Built an iOS receipt-scanning app in Swift and SwiftUI.</p></div></li>
+        <li><div class="yr">2024 – 2029</div><i class="dot d-edu"></i><div>
+          <h3>University of Toronto, Engineering Science (Robotics)</h3>
+          <p>BASc, expected April 2029. Wallberg Scholarship.</p>
+          <ul class="pills"><li>Intro to Robotics</li><li>Mathematics for Robotics</li><li>Electronics for Robotics</li><li>Dynamics</li><li>Data Structures &amp; Analysis</li><li>Electric Circuits</li><li>Digital &amp; Computer Systems</li><li>Differential Equations</li><li>Probability &amp; Statistics</li><li>Thermodynamics</li></ul></div></li>
+      </ol>
+    </div>
+
+    <div class="stage">
+      <h2>High school</h2>
+      <ol class="tl">
+        <li><div class="yr">2024</div><i class="dot d-lead"></i><div>
+          <h3>DECA Executive, St. Francis Xavier</h3></div></li>
+        <li><div class="yr">2023 – 2024</div><i class="dot d-sport"></i><div>
+          <h3>Varsity Ping Pong, St. Francis Xavier</h3>
+          <p>Grade 12.</p></div></li>
+        <li><div class="yr">2023 – 2024</div><i class="dot d-lead"></i><div>
+          <h3>Mechanical Team Lead, FIRST Robotics</h3>
+          <ul class="pills"><li class="k">5th internationally</li><li class="k">2 district event wins</li></ul></div></li>
+        <li><div class="yr">2022 – 2024</div><i class="dot d-lead"></i><div>
+          <h3>Founder, St. Francis Xavier Robotics Club</h3></div></li>
+        <li><div class="yr">2021 – 2024</div><i class="dot d-sport"></i><div>
+          <h3>Varsity Baseball, St. Francis Xavier</h3>
+          <p>Grades 10 through 12.</p></div></li>
+        <li><div class="yr">2020 – 2024</div><i class="dot d-edu"></i><div>
+          <h3>St. Francis Xavier Secondary School, IB Program</h3>
+          <ul class="pills"><li class="k">HL Math AA</li><li class="k">HL Physics</li><li class="k">HL Economics</li><li>SL Chemistry</li><li>SL French</li><li>SL English</li></ul></div></li>
+        <li><div class="yr">2017 – 2024</div><i class="dot d-sport"></i><div>
+          <h3>REP AA Baseball</h3>
+          <p>Competitive rep baseball from middle school through the end of high school.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="stage">
+      <h2>Middle school</h2>
+      <ol class="tl">
+        <li><div class="yr">2019 – Present</div><i class="dot d-work"></i><div>
+          <h3>Umpire, Mississauga North Baseball Association</h3></div></li>
+        <li><div class="yr">2018</div><i class="dot d-award"></i><div>
+          <h3>PEO Mathletics, 1st Place</h3>
+          <p>Math competition run by Professional Engineers Ontario.</p></div></li>
+        <li><div class="yr">2017 – 2019</div><i class="dot d-award"></i><div>
+          <h3>FIRST LEGO League</h3>
+          <ul class="pills"><li class="k">Regional Champion ×2</li><li class="k">Robot Design Award ×2</li><li>Robot Performance Award</li></ul></div></li>
+        <li><div class="yr">2017 – 2020</div><i class="dot d-edu"></i><div>
+          <h3>Tomken Road Middle School, SciTech Program</h3>
+          <p>Enriched science and technology program. This is where I got into robotics.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="view" data-view="about">
+  <div class="wrap">
+    <div class="page-h"><h1>About me</h1></div>
+    <div class="about">
+      <div class="body">
+        <p>I'm Gautam Manerikar, a third-year student in Engineering Science at the University of Toronto, majoring in Robotics Engineering.</p>
+        <p>I got started with LEGO robots in the SciTech program at Tomken Road Middle School and kept going from there. In high school I founded the robotics club at St. Francis Xavier and led mechanical design for our FIRST Robotics team, which finished 5th internationally.</p>
+        <p>These days most of my work sits between software and hardware: motion planning and computer vision for a robot arm, sensors wired to microcontrollers, and circuits I etch and solder myself. On the aUToronto team I work on the HD map that lets our self-driving car follow its route through the city.</p>
+        <p>Outside of engineering, baseball has been a big part of my life. I played competitive REP AA baseball through middle and high school, played varsity baseball at St. Francis Xavier from grade 10 to 12 and varsity ping pong in grade 12, and have umpired with the Mississauga North Baseball Association since 2019.</p>
+      </div>
+      <aside class="card">
+        <h2>Get in touch</h2>
+        <dl>
+          <div><dt>Email</dt><dd><a href="mailto:gautam.manerikar@mail.utoronto.ca">gautam.manerikar@mail.utoronto.ca</a></dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:+16479236439">647-923-6439</a></dd></div>
+          <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/gautam-manerikar3" target="_blank" rel="noopener">linkedin.com/in/gautam-manerikar3</a></dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/GautamM303" target="_blank" rel="noopener">github.com/GautamM303</a></dd></div>
+          <div><dt>Resume</dt><dd><a href="assets/Gautam_Manerikar_Resume.pdf" target="_blank" rel="noopener">Download PDF</a></dd></div>
+        </dl>
+      </aside>
+    </div>
+
+    <div class="skills">
+      <h2>Skills</h2>
+      <div class="sk"><h3>Languages</h3><p>Python, C/C++ (Arduino), SQL, MATLAB, Swift, Verilog, RISC-V Assembly</p></div>
+      <div class="sk"><h3>CAD &amp; design</h3><p>SolidWorks, AutoCAD, Fusion 360, Inventor, Onshape, SketchUp, KiCad, Altium, LTspice</p></div>
+      <div class="sk"><h3>Hardware</h3><p>PCB design &amp; bring-up, wiring harnesses, sensor integration, soldering, 3D printing, oscilloscopes, power tools</p></div>
+      <div class="sk"><h3>Frameworks &amp; tools</h3><p>ROS 2, OpenCV, MuJoCo, NumPy, URDF, Lanelet2, SwiftUI, VisionKit, Git, ZEISS T-SCAN 3D scanning</p></div>
+      <div class="sk"><h3>Data &amp; office</h3><p>Power BI, Microsoft Fabric, PySpark, Power Apps, Excel, PowerPoint, Word</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h2>Let's talk.</h2>
+      <a href="mailto:gautam.manerikar@mail.utoronto.ca">gautam.manerikar@mail.utoronto.ca</a>
+    </div>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/gautam-manerikar3" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/GautamM303" target="_blank" rel="noopener">GitHub</a>
+      <a href="assets/Gautam_Manerikar_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+    <small>© <span id="yr">2026</span> Gautam Manerikar</small>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Image viewer">
+  <button type="button" aria-label="Close" id="lbx">×</button>
+  <img id="lbimg" alt="">
+  <p id="lbcap"></p>
+</dialog>
+
+<script>
+/* ---------- Project data: edit here to add or change projects ---------- */
+var PROJECTS = [
+  {
+    id:'autoronto', title:'aUToronto HD Map', badge:null,
+    blurb:'Lane-level HD map for U of T’s self-driving car, built from lidar point clouds with Lanelet2.',
+    sub:'The high-definition prior map that lets aUToronto’s self-driving car know exactly which lane it’s in, where it can go, and where lanes merge, across a 20 km route through Toronto.',
+    type:'aUToronto, Sep 2026 – present', tools:'Lanelet2, lidar point clouds', outcome:'Routable lane network for a 20 km route',
+    cover:'assets/img/autoronto-map.webp', coverW:1558, coverH:870,
+    gallery:[
+      {src:'assets/img/autoronto-map.webp', w:1558, h:870, alt:'Top-down lidar point-cloud map of a parking lot with coloured lane polygons and arrows showing direction of travel', cap:'Lanelets drawn over a lidar point-cloud map. Each coloured region is a lane segment and the arrows show its direction of travel.', wide:true}
+    ],
+    problem:'A self-driving car can’t rely only on live sensors to work out where the lanes are. It needs a precise map that already knows every lane, which way it flows, and how lanes connect, so the planner can route lane by lane.',
+    did:[
+      'Turn lidar point-cloud maps into drivable, lane-level paths for the car’s 20 km autonomous route across Toronto.',
+      'Connect Lanelet2 lane segments into a routable network so the planner can find lane-level routes across the map.',
+      'Define parent, child and sibling lanelet links so the car knows where it came from, where to go and where to merge.'
+    ],
+    result:'An HD prior map the autonomy stack relies on, offloading lane perception from live sensors onto the map.'
+  },
+  {
+    id:'gambit', title:'Gambit', badge:null,
+    blurb:'A 7-DOF robot arm that reads a chessboard through a camera and plays against a person.',
+    sub:'A chess-playing robot built on Bracket Bot. It reads the board through a camera, works out the opponent\'s move, and plays its reply with a 7-DOF arm.',
+    type:'Bracket Bot hackathon', tools:'Python, MuJoCo, OpenCV, Stockfish', outcome:'≤1 mm placement accuracy in simulation',
+    cover:'assets/img/gambit-pick.webp', coverW:806, coverH:537,
+    video:{src:'assets/video/gambit-demo.mp4', poster:'assets/video/gambit-poster.jpg', cap:'Demo: Gambit reads the board, Stockfish picks a move, and the arm picks the pawn up by its shaft and places it. The bottom-right inset is the view from the hand camera.'},
+    code:'https://github.com/GautamM303/-Gambit-',
+    gallery:[
+      {src:'assets/img/gambit-ui.webp', w:806, h:458, alt:'Gambit interface: simulated arm at a chess table, head camera, rectified board and hand camera views, and a playable board in the browser', cap:'The full interface: the arm in MuJoCo, live camera views (head, rectified board, hand), and the board you play on.', wide:true},
+      {src:'assets/img/gambit-pick.webp', w:806, h:537, alt:'Close-up of the gripper above the chess pieces', cap:'The gripper lining up over a piece.', wide:true}
+    ],
+    problem:'Playing physical chess means the robot has to see the board, figure out what the opponent just did, and move one piece on a crowded board without knocking over the others.',
+    did:[
+      'Developed inverse kinematics and collision-checked motion planning for the 7-DOF arm in MuJoCo.',
+      'Read board state from ArUco markers and a homography, then inferred the opponent\'s move by matching the new board against every legal move.',
+      'Implemented touch-detected placement, so the arm confirms contact with the board before it releases a piece.',
+      'Traced intermittent grasp failures to the gripper pad geometry and redesigned the contact faces.'
+    ],
+    result:'Arm placement validated in simulation to within 1 mm, and the redesigned gripper pads eliminated the grasp failures.'
+  },
+  {
+    id:'csa', title:'Current-Sense Amplifier PCB', badge:null,
+    blurb:'An op-amp circuit and two-layer Altium PCB that turns 0–3.5 A of load current into a clean, filtered signal for a microcontroller ADC.',
+    sub:'A current-sense amplifier with a 4th-order low-pass filter, designed, simulated and laid out as a two-layer PCB.',
+    type:'Team project (2 people), 2026', tools:'LTspice, Altium Designer, LM324', outcome:'Within 11 mV of spec across 0–3.5 A',
+    cover:'assets/img/csa-layers.webp', coverW:1054, coverH:1057,
+    gallery:[
+      {src:'assets/img/csa-schematic.webp', w:1600, h:737, alt:'Altium schematic: buffered reference, summing amplifier, two Sallen-Key filter stages and a 5-pin header', cap:'Altium schematic: buffered reference and summing amplifier (U1A–U1B), then a 4th-order Sallen-Key low-pass filter (U1C–U1D).', wide:true},
+      {src:'assets/img/csa-top.webp', w:1048, h:1053, alt:'Top copper layer of the PCB', cap:'Top copper layer.', contain:true},
+      {src:'assets/img/csa-bottom.webp', w:1033, h:1047, alt:'Bottom copper layer of the PCB', cap:'Bottom copper layer.', contain:true}
+    ],
+    problem:'Measure a 0–3.5 A load through a 0.1 Ω low-side sense resistor and map it linearly onto 0.25–3.3 V for an STM32 ADC, using a single 19 V supply and LM324 op-amps. The catch: the LM324 output can’t go below about 0.1 V, right where the low end of the signal sits.',
+    did:[
+      'Compared three amplifier topologies in LTspice. Putting gain before the offset clipped the signal below about 115 mA, which showed the offset had to be added before any gain stage.',
+      'Settled on a buffered voltage reference feeding a single non-inverting summing amplifier. Matching two resistor ratios made slope and offset independent, each set by one ratio, and cut the design from eight resistors to six.',
+      'Verified it with the TI LM324 SPICE model across the full 0–3.5 A sweep and analysed how 5% resistor tolerance shifts the output.',
+      'Added a 4th-order Butterworth low-pass filter (two Sallen-Key stages) using the remaining two op-amps, so the whole circuit fits on one LM324 chip.',
+      'Drew the schematic and laid out a two-layer PCB in Altium with the 3 W sense resistor, a 5-pin header and M3 mounting holes.'
+    ],
+    result:'Simulated output stays within 11 mV of the required line across the full current range. The filter is flat to within ±0.03 dB up to 1 kHz and reaches about −39.5 dB at 5 kHz, beating the −35 dB spec.'
+  },
+  {
+    id:'sumobot', title:'SumoBot', badge:'1st place',
+    blurb:'An autonomous sumo robot that finds its opponent, pushes it out, and stays in the ring.',
+    sub:'An autonomous sumo robot for the McMaster SumoBot Competition, designed from the chassis up.',
+    type:'Competition, McMaster University', tools:'Arduino, ultrasonic & IR sensors, 3D printing', outcome:'1st place, division winner',
+    cover:'assets/img/sumobot.webp', coverW:592, coverH:1042, coverPos:'50% 40%',
+    gallery:[
+      {src:'assets/img/sumobot.webp', w:592, h:1042, alt:'Two small robots pushing against each other in a black sumo ring', cap:'Mid-match in the competition ring.', contain:true}
+    ],
+    problem:'Build a fully autonomous robot that finds an opponent, pushes it out of the ring, and never drives itself over the edge.',
+    did:[
+      'Designed the full robot, from chassis to control logic, integrating sensors, motors and an Arduino into one autonomous system.',
+      'Implemented real-time opponent detection using ultrasonic and infrared sensors for distance estimation and tracking.',
+      'Developed boundary-awareness logic to stay inside the arena while still attacking aggressively.',
+      'Designed and 3D printed a custom chassis, tuning weight distribution and durability for collisions.'
+    ],
+    result:'Won 1st place and the division at the McMaster SumoBot Competition.'
+  },
+  {
+    id:'solar', title:'Solar Water Heating Control', badge:null,
+    blurb:'A bench-scale, three-tank solar water heater that manages its own water level and temperature.',
+    sub:'Intelligent control for a bench-scale, three-tank solar water heater prototype.',
+    type:'Design project', tools:'Fusion 360, 3D printing, Raspberry Pi Pico', outcome:'Holds 40 °C, solar first',
+    cover:'assets/img/solar-front.webp', coverW:1050, coverH:1400, coverPos:'50% 30%',
+    gallery:[
+      {src:'assets/img/solar-front.webp', w:1050, h:1400, alt:'Water heater prototype: white cylindrical tank on a plywood stand, tubing into a steel bowl reservoir, and a kettle', cap:'The prototype: tank, reservoir and pump.'},
+      {src:'assets/img/solar-electrical.webp', w:961, h:1280, alt:'Raspberry Pi Pico on a breadboard with a relay module and a DC-DC converter mounted on plywood', cap:'Control electronics: Raspberry Pi Pico, relay and converter.'}
+    ],
+    problem:'A solar water heater needs to keep its tank full and its water hot, while using grid power as little as possible.',
+    did:[
+      'Designed the enclosure and custom valves in Fusion 360.',
+      'Wrote the bill of materials, 3D printed all parts, and wired the sensors, pump and refill valve to a Raspberry Pi Pico.',
+      'Programmed and calibrated a weight sensor to track the tank\'s water level, opening the refill valve below a set minimum.',
+      'Paired level control with a 40 °C temperature setpoint.'
+    ],
+    result:'A working prototype that refills itself automatically and holds 40 °C, heating with solar first and grid power only as backup.'
+  },
+  {
+    id:'pcb', title:'PCB Christmas Tree', badge:null,
+    blurb:'A flashing LED tree, designed in KiCad and simulated in LTspice, then etched and soldered by hand.',
+    sub:'A decorative flashing LED circuit, taken from schematic to a finished board.',
+    type:'Electronics project', tools:'KiCad, LTspice, PCB etching, soldering', outcome:'8 LEDs, 2 alternating banks',
+    cover:'assets/img/pcb-red.webp', coverAlt:'assets/img/pcb-yellow.webp', coverW:1400, coverH:1050,
+    gallery:[
+      {src:'assets/img/pcb-red.webp', w:1400, h:1050, alt:'Hand-etched PCB with the red LEDs lit, next to a 9V battery', cap:'Red bank on.'},
+      {src:'assets/img/pcb-yellow.webp', w:1400, h:1050, alt:'The same PCB with the yellow LEDs lit', cap:'Yellow bank on.'}
+    ],
+    problem:'Design a flashing LED display from scratch that runs on a 9 V battery without overdriving the LEDs.',
+    did:[
+      'Designed the schematic and layout in KiCad.',
+      'Simulated the circuit in LTspice to choose resistor values that keep LED current safe on a 9 V supply.',
+      'Etched the copper-clad board, drilled the through-holes, and soldered every component.'
+    ],
+    result:'A working flashing display: 8 LEDs driven by 2 transistors, alternating between two banks.'
+  },
+  {
+    id:'battery', title:'Li-ion Battery Simulator', badge:null,
+    blurb:'A coupled ODE model of a lithium-ion cell, used to compare 12 charging policies on speed, heat and long-term wear.',
+    sub:'A reduced-order model of lithium-ion battery charging, built with a team of four to find which charging strategy gives the best balance of speed, temperature and battery life.',
+    type:'Team project (4 people), Dec 2025', tools:'Python, NumPy, RK4, Matplotlib', outcome:'12 charging policies ranked over 10 cycles',
+    cover:'assets/img/battery-ranking.webp', coverW:1600, coverH:795, coverFit:'contain',
+    gallery:[
+      {src:'assets/img/battery-ranking.webp', w:1600, h:795, alt:'Bar chart ranking 12 charging policies by efficiency score, from CC 9A at 0.956 down to CV 3.8V at 0.218', cap:'Efficiency score combining charging time, peak temperature and SEI growth for all 12 policies (higher is better).', wide:true},
+      {src:'assets/img/battery-time.webp', w:1600, h:798, alt:'Bar chart of minutes to reach full charge for each policy', cap:'Time to 100% state of charge.', contain:true},
+      {src:'assets/img/battery-sei.webp', w:1600, h:798, alt:'Bar chart of SEI layer growth over 10 cycles for each policy', cap:'Degradation: SEI growth over 10 cycles.', contain:true},
+      {src:'assets/img/battery-thermal.webp', w:1600, h:798, alt:'Bar chart of peak cell temperature for each policy with 45 and 60 degree reference lines', cap:'Peak temperature against the 45 °C warning and 60 °C safety limit.', contain:true},
+      {src:'assets/img/battery-ocv.webp', w:1600, h:1186, alt:'Line chart of battery terminal voltage rising from 3.0 V to 4.2 V across state of charge', cap:'The voltage vs. state-of-charge curve used in the model.', contain:true}
+    ],
+    problem:'Fast charging saves time but heats the cell and wears it out faster. To compare charging strategies fairly, you have to model charge level, temperature, voltage and aging together, not one at a time.',
+    did:[
+      'Modelled a 3 Ah cell as a coupled 7-state ODE system (voltage, current, resistance, temperature, state of charge, SEI degradation and polarization voltage) solved with RK4.',
+      'Combined Joule heating with cooling for temperature, a first-order RC circuit for polarization, and an Arrhenius-type law for SEI layer growth.',
+      'Compared 4 charging strategies (constant current, CC-CV, CC-CV with pulses, and constant voltage) at 3 settings each: 3–9 A (1C–3C) and 3.8–5.0 V, with a 60 °C safety limit.',
+      'Ran every policy for 10 back-to-back charge cycles, carrying degradation forward, and ranked them with a combined efficiency score.'
+    ],
+    result:'Constant current at 9 A (score 0.956) and pulsed CC-CV at 4.2 V (0.955) gave the best balance. CC-CV-based charging reached full in about 21–26 minutes, while constant-voltage charging was slower (36–89 minutes), ran hottest and caused the most SEI growth, which shows why commercial chargers use CC-CV.'
+  },
+  {
+    id:'rover', title:'UTRA Hackathon Robot', badge:null,
+    blurb:'An autonomous Arduino robot built at a hackathon to complete a course of tasks on its own.',
+    sub:'An autonomous robot my team built at the University of Toronto Robotics Association (UTRA) hackathon, designed to complete a set of tasks without anyone driving it.',
+    type:'UTRA Hackathon, Feb 2026 (team)', tools:'Arduino, line sensors, ultrasonic sensor', outcome:'Autonomous line following & obstacle avoidance',
+    cover:'assets/img/rover-obstacle.webp', coverW:795, coverH:1280, coverPos:'50% 70%',
+    gallery:[
+      {src:'assets/img/rover-obstacle.webp', w:795, h:1280, alt:'Robot on a red tape line approaching a canister', cap:'Approaching an obstacle on the course.'},
+      {src:'assets/img/rover-line.webp', w:592, h:1280, alt:'Robot following a red strip on a table during a demo', cap:'Following the line during a demo.'}
+    ],
+    problem:'In a limited hackathon window, build a robot that completes a series of tasks completely on its own: following the course, dealing with obstacles, and getting through each challenge without anyone driving it.',
+    did:[
+      'Built the robot with my team on a two-wheel chassis with an Arduino, motor driver and breadboard wiring.',
+      'Used line sensors to track the taped course and an ultrasonic sensor to detect obstacles ahead.',
+      'Wrote the control logic that switches between following the line and handling obstacles as the robot works through the course.'
+    ],
+    result:'A working autonomous robot that followed the course and detected obstacles before reaching them, built from scratch within the hackathon.'
+  }
+];
+var FEATURED = ['autoronto','gambit','sumobot'];
+
+(function(){
+  var d=document, body=d.body;
+  body.classList.remove('no-js');
+  d.getElementById('yr').textContent=new Date().getFullYear();
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function byId(id){for(var i=0;i<PROJECTS.length;i++) if(PROJECTS[i].id===id) return i; return -1}
+
+  function pic(p){
+    if(p.svg) return p.svg;
+    var pos=p.coverFit?' style="object-fit:'+p.coverFit+';background:#fff"':(p.coverPos?' style="object-position:'+p.coverPos+'"':'');
+    var main='<img src="'+p.cover+'" width="'+p.coverW+'" height="'+p.coverH+'" alt="" loading="lazy"'+pos+'>';
+    if(p.coverAlt) main='<div class="blinker">'+main+'<img class="alt" src="'+p.coverAlt+'" alt="" loading="lazy"></div>';
+    return main;
+  }
+  function tile(p){
+    return '<a class="tile" href="#/projects/'+p.id+'">'+
+      '<div class="pic">'+pic(p)+(p.badge?'<span class="badge">'+esc(p.badge)+'</span>':'')+(p.video?'<span class="vid">▶ Demo video</span>':'')+'</div>'+
+      '<div class="body"><h3>'+esc(p.title)+'</h3><p>'+esc(p.blurb)+'</p>'+
+      '<div class="tags">'+esc(p.tools)+'</div><span class="more">View project →</span></div></a>';
+  }
+  d.getElementById('all-projects').innerHTML=PROJECTS.map(tile).join('');
+  d.getElementById('featured').innerHTML=FEATURED.map(function(id){return tile(PROJECTS[byId(id)])}).join('');
+
+  function detail(i){
+    var p=PROJECTS[i], prev=PROJECTS[(i-1+PROJECTS.length)%PROJECTS.length], next=PROJECTS[(i+1)%PROJECTS.length];
+    var g='';
+    if(p.svg){ g='<div class="gallery g1"><div style="border-radius:10px;overflow:hidden">'+p.svg+'</div><div class="cap">A typical constant-current, constant-voltage charging curve, the baseline the strategies were compared against. Illustration, not simulation output.</div></div>'; }
+    else if(p.gallery){
+      var cls=p.gallery.length>1?'g2':'g1';
+      g='<div class="gallery '+cls+'">'+p.gallery.map(function(im){
+        return '<button type="button" class="'+(im.contain?'contain ':'')+(im.wide?'wide':'')+'" data-full="'+im.src+'" data-cap="'+esc(im.cap||'')+'"><img src="'+im.src+'" width="'+im.w+'" height="'+im.h+'" alt="'+esc(im.alt)+'"></button>';
+      }).join('')+(cls==='g1'&&p.gallery[0].cap?'<div class="cap">'+esc(p.gallery[0].cap)+'</div>':'')+'</div>';
+    }
+    return '<a class="back" href="#/projects">← All projects</a>'+
+      '<div class="pd-head">'+(p.badge?'<span class="badge">'+esc(p.badge)+'</span>':'')+'<h1>'+esc(p.title)+'</h1><p class="sub">'+esc(p.sub)+'</p>'+(p.code?'<div class="btns" style="margin-top:20px"><a class="btn line" href="'+p.code+'" target="_blank" rel="noopener">View code on GitHub ↗</a></div>':'')+'</div>'+
+      '<dl class="facts"><div><dt>Type</dt><dd>'+esc(p.type)+'</dd></div><div><dt>Tools</dt><dd>'+esc(p.tools)+'</dd></div><div><dt>Outcome</dt><dd>'+esc(p.outcome)+'</dd></div></dl>'+
+      (p.video?'<figure class="demo"><video src="'+p.video.src+'" poster="'+p.video.poster+'" autoplay muted loop playsinline controls preload="metadata"></video><figcaption>'+esc(p.video.cap)+'</figcaption></figure>':'')+
+      g+
+      '<div class="story">'+
+        '<h2>The problem</h2><div><p>'+esc(p.problem)+'</p></div>'+
+        '<h2>What I did</h2><div><ul>'+p.did.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div>'+
+        '<h2>The result</h2><div><p class="result">'+esc(p.result)+'</p></div>'+
+      '</div>'+
+      '<nav class="pager" aria-label="More projects"><a href="#/projects/'+prev.id+'"><span>← Previous</span>'+esc(prev.title)+'</a><a class="nx" href="#/projects/'+next.id+'"><span>Next →</span>'+esc(next.title)+'</a></nav>';
+  }
+
+  /* ---------- router ---------- */
+  var views=d.querySelectorAll('.view'), navs=d.querySelectorAll('[data-nav]');
+  var menu=d.getElementById('menu'), burger=d.getElementById('burger');
+  var TITLES={home:'Gautam Manerikar', projects:'Projects', experience:'Experience', journey:'Journey', about:'About'};
+  function route(){
+    var parts=location.hash.replace(/^#\/?/,'').split('/');
+    var name=parts[0]||'home', sub=parts[1], view=name, title;
+    if(!TITLES[name]){ name='home'; view='home'; sub=null; }
+    if(name==='projects' && sub){
+      var i=byId(sub);
+      if(i<0){ location.replace('#/projects'); return; }
+      d.getElementById('project-detail').innerHTML=detail(i);
+      view='project'; title=PROJECTS[i].title;
+    }
+    if(view!=='project') d.getElementById('project-detail').innerHTML='';
+    views.forEach(function(v){v.classList.toggle('on', v.dataset.view===view)});
+    navs.forEach(function(a){ if(a.dataset.nav===name) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+    title=title||TITLES[name];
+    d.title = (name==='home' && !sub) ? 'Gautam Manerikar' : title+' · Gautam Manerikar';
+    window.scrollTo(0,0);
+    menu.classList.remove('open'); burger.setAttribute('aria-expanded','false');
+  }
+  burger.addEventListener('click',function(){
+    var o=menu.classList.toggle('open'); burger.setAttribute('aria-expanded',o?'true':'false');
+  });
+  window.addEventListener('hashchange',route);
+  d.querySelector('.skip').addEventListener('click',function(e){e.preventDefault(); d.getElementById('main').focus();});
+  route();
+
+  /* ---------- lightbox ---------- */
+  var lb=d.getElementById('lb'), li=d.getElementById('lbimg'), lc=d.getElementById('lbcap');
+  d.addEventListener('click',function(e){
+    var b=e.target.closest && e.target.closest('button[data-full]');
+    if(!b) return;
+    li.src=b.dataset.full; li.alt=b.querySelector('img').alt; lc.textContent=b.dataset.cap||'';
+    if(lb.showModal) lb.showModal(); else window.open(b.dataset.full);
+  });
+  d.getElementById('lbx').addEventListener('click',function(){lb.close()});
+  lb.addEventListener('click',function(e){if(e.target===lb) lb.close()});
+})();
+</script>
+</body>
+</html>

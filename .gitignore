@@ -1,0 +1,14 @@
+# Original source photos (web-optimized copies live in assets/)
+aUToronto/
+Chrstimas_Tree/
+Gambit/
+PCB Design/
+Sumobot/
+UTRA/
+Water_Control_System/
+
+# Local tooling
+.claude/
+
+# Uncropped original (site uses headshot-portrait.webp)
+assets/img/Headshot.webp
